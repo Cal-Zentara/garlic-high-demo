@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garlic High — Savage & Happy Ramen · Sunnyvale CA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800;12..96,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --yellow:      #F2BF2A;
+            --yellow-light:#FFF6D6;
+            --yellow-dark: #C99A10;
+            --ink:         #1C1A17;
+            --ink-soft:    #5A5550;
+            --cream:       #FFFEF7;
+            --white:       #FFFFFF;
+            --border:      rgba(28, 26, 23, 0.09);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 254, 247, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .nav-cta {
+            background: var(--yellow);
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.58rem 1.35rem;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.15s ease, transform 0.12s ease;
+        }
+
+        .nav-cta:hover  { background: var(--yellow-dark); transform: translateY(-1px); }
+        .nav-cta:active { transform: scale(0.97); }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100dvh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 4.5rem;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem 3rem 3rem 3rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--yellow-light);
+            border: 1px solid rgba(242, 191, 42, 0.5);
+            border-radius: 100px;
+            padding: 0.32rem 0.9rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--yellow-dark);
+            margin-bottom: 1.25rem;
+            width: fit-content;
+        }
+
+        .badge-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--yellow-dark);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.35; }
+        }
+
+        .hero-h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(3.8rem, 6.5vw, 7rem);
+            font-weight: 900;
+            line-height: 0.92;
+            letter-spacing: -0.035em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-h1 .em {
+            color: var(--yellow-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-h1 .em::after {
+            content: '';
+            position: absolute;
+            bottom: 3px; left: 0; right: 0;
+            height: 5px;
+            background: var(--yellow);
+            border-radius: 3px;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            line-height: 1.65;
+            max-width: 40ch;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-dark {
+            background: var(--ink);
+            color: var(--cream);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 0.82rem 1.9rem;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.01em;
+            transition: background 0.15s ease, transform 0.12s ease;
+        }
+
+        .btn-dark:hover  { background: #333; transform: translateY(-1px); }
+        .btn-dark:active { transform: scale(0.97); }
+
+        .btn-ghost {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.2s ease;
+        }
+
+        .btn-ghost:hover { gap: 0.7rem; }
+
+        .hero-stats {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-num {
+            font-size: 1.9rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-lbl {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-top: 0.1rem;
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-right img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--cream) 0%, transparent 14%);
+        }
+
+        /* ─── MARQUEE ─── */
+        .marquee-wrap {
+            background: var(--yellow);
+            padding: 0.9rem 0;
+            overflow: hidden;
+        }
+
+        .marquee-inner {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+
+        .marquee-inner span {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink);
+            padding: 0 2rem;
+        }
+
+        .sep { opacity: 0.4; }
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ─── BOWL SECTION ─── */
+        .bowl {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            min-height: 70vh;
+        }
+
+        .bowl-img {
+            overflow: hidden;
+            position: relative;
+            background: #1C1A17;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bowl-img img {
+            width: auto;
+            height: auto;
+            max-width: 320px;
+            max-height: 430px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bowl-img:hover img { transform: scale(1.03); }
+
+        .bowl-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem 3rem;
+            background: var(--white);
+        }
+
+        .lbl {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--yellow-dark);
+            margin-bottom: 0.7rem;
+        }
+
+        .sec-h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.9rem;
+        }
+
+        .sec-p {
+            font-size: 1rem;
+            line-height: 1.72;
+            color: var(--ink-soft);
+            max-width: 38ch;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ─── CUSTOMIZE ─── */
+        .customize {
+            padding: 4rem 3rem;
+            background: var(--cream);
+        }
+
+        .cx-header {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .cx-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.6fr;
+            gap: 1.25rem;
+        }
+
+        .cx-card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 1.6rem 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .cx-card.wide {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cx-icon {
+            width: 40px; height: 40px;
+            background: var(--yellow-light);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.85rem;
+        }
+
+        .cx-title {
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cx-desc {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        .pills {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-top: 0.9rem;
+        }
+
+        .pill {
+            padding: 0.38rem 0.85rem;
+            border-radius: 100px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border: 1.5px solid var(--border);
+            color: var(--ink-soft);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .pill.on, .pill:hover {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: var(--ink);
+        }
+
+        /* ─── GARLIC FEATURE ─── */
+        .garlic-feat {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            min-height: 62vh;
+        }
+
+        .garlic-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem 3rem;
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .garlic-copy .lbl    { color: var(--yellow); }
+        .garlic-copy .sec-h2 { color: var(--cream); }
+        .garlic-copy .sec-p  { color: rgba(255,254,247,0.55); }
+
+        .garlic-img {
+            overflow: hidden;
+            background: #2a2620;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .garlic-img img {
+            width: auto;
+            height: auto;
+            max-width: 320px;
+            max-height: 430px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .garlic-img:hover img { transform: scale(1.03); }
+
+        /* ─── MENU ─── */
+        .menu-section {
+            padding: 4rem 3rem;
+            background: var(--yellow);
+        }
+
+        .menu-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-section .lbl { color: rgba(28,26,23,0.5); }
+        .menu-section .sec-h2 { color: var(--ink); }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .menu-category { }
+
+        .menu-cat-title {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(28,26,23,0.5);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1.5px solid rgba(28,26,23,0.15);
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 0.875rem;
+            padding: 1rem 1.1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .menu-item-name {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .menu-item-desc {
+            font-size: 0.75rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            margin-bottom: 0.4rem;
+        }
+
+        .menu-item-price {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--ink);
+        }
+
+        /* ─── OC BANNER ─── */
+        .oc-banner {
+            background: var(--yellow);
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .oc-pill {
+            display: inline-block;
+            background: var(--ink);
+            color: var(--yellow);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .oc-h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+        }
+
+        .oc-sub {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(28,26,23,0.55);
+        }
+
+        @media (max-width: 768px) {
+            .oc-banner { padding: 3rem 1.5rem; }
+        }
+
+        /* ─── MERCH ─── */
+        .merch-section {
+            background: var(--ink);
+            overflow: hidden;
+        }
+
+        .merch-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 420px;
+        }
+
+        .merch-hero-img {
+            overflow: hidden;
+            background: #111;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .merch-hero-img img {
+            width: auto;
+            height: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .merch-headline {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .merch-tag {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 0.7rem;
+        }
+
+        .merch-h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 5rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+            color: var(--cream);
+        }
+
+        .merch-h2 .savage {
+            color: var(--yellow);
+            display: block;
+        }
+
+        .merch-sub {
+            font-size: 0.9rem;
+            color: rgba(255,254,247,0.6);
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+
+        .merch-bottom {
+            padding: 2rem 3rem 3rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .merch-card {
+            background: rgba(255,254,247,0.05);
+            border: 1px solid rgba(255,254,247,0.08);
+            border-radius: 0.875rem;
+            padding: 1.1rem 1rem;
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+
+        .merch-card:hover {
+            background: rgba(255,254,247,0.09);
+            border-color: rgba(242,191,42,0.3);
+        }
+
+        .merch-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.3;
+            margin-bottom: 0.4rem;
+        }
+
+        .merch-price {
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--yellow);
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 768px) {
+            .menu-section { padding: 3rem 1.5rem; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .merch-top { grid-template-columns: 1fr; }
+            .merch-hero-img { min-height: 260px; }
+            .merch-headline { padding: 2rem 1.5rem 1.5rem; }
+            .merch-bottom { grid-template-columns: 1fr 1fr; padding: 1rem 1.5rem 2rem; }
+        }
+
+        /* ─── GALLERY SLIDESHOW ─── */
+        .gallery {
+            padding: 3.5rem 3rem;
+        }
+
+        .gallery-hdr {
+            max-width: 1200px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .slideshow {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .slide-track {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            overflow: hidden;
+        }
+
+        .slide-main {
+            flex-shrink: 0;
+            width: 340px;
+            background: #f0ede6;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            transition: opacity 0.35s ease;
+        }
+
+        .slide-main img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0.75rem;
+        }
+
+        .slide-side {
+            flex-shrink: 0;
+            width: 200px;
+            background: #f0ede6;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            opacity: 0.45;
+            transform: scale(0.92);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            cursor: pointer;
+        }
+
+        .slide-side img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0.75rem;
+        }
+
+        .slide-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .slide-btn {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s ease, border-color 0.15s ease;
+            flex-shrink: 0;
+        }
+
+        .slide-btn:hover {
+            background: var(--yellow);
+            border-color: var(--yellow);
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .dot.active {
+            background: var(--ink);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .gallery { padding: 3rem 1.5rem; }
+            .slide-side { display: none; }
+            .slide-main { width: 100%; max-width: 320px; }
+        }
+
+        /* ─── HOURS ─── */
+        .hours {
+            padding: 4rem 3rem;
+            background: var(--white);
+        }
+
+        .hours-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .hours-rows { margin-top: 1.25rem; }
+
+        .h-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .h-day  { font-weight: 700; }
+        .h-time { color: var(--ink-soft); }
+        .h-time.closed { color: #B03A2E; font-weight: 700; }
+
+        .loc-address {
+            font-size: 1.55rem;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            margin-bottom: 0.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .loc-phone {
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            margin-bottom: 1.25rem;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--ink);
+            padding: 1.75rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .foot-logo img {
+            height: 32px;
+            width: auto;
+            display: block;
+            filter: brightness(0) invert(1);
+            opacity: 0.85;
+        }
+
+        .foot-copy {
+            font-size: 0.75rem;
+            color: rgba(255, 254, 247, 0.55);
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .foot-links a {
+            font-size: 0.75rem;
+            color: rgba(255, 254, 247, 0.45);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: color 0.15s ease;
+        }
+
+        .foot-links a:hover { color: var(--yellow); }
+
+        /* ─── SCROLL REVEAL ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.d1 { transition-delay: 0.08s; }
+        .reveal.d2 { transition-delay: 0.16s; }
+        .reveal.d3 { transition-delay: 0.24s; }
+        .reveal.d4 { transition-delay: 0.32s; }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-tag { display: none; }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: 100dvh;
+            }
+            .hero-right {
+                height: 52vw;
+                min-height: 240px;
+                order: -1;
+            }
+            .hero-right::after {
+                background: linear-gradient(to top, var(--cream) 0%, transparent 25%);
+            }
+            .hero-left { padding: 2rem 1.5rem 3rem; }
+            .hero-stats { gap: 1.75rem; margin-top: 2.5rem; padding-top: 2rem; }
+
+            .bowl {
+                grid-template-columns: 1fr;
+            }
+            .bowl-img { height: 50vw; min-height: 280px; }
+            .bowl-copy { padding: 3rem 1.5rem; }
+
+            .customize { padding: 4rem 1.5rem; }
+            .cx-grid { grid-template-columns: 1fr; }
+
+            .garlic-feat {
+                grid-template-columns: 1fr;
+            }
+            .garlic-img { height: 50vw; min-height: 280px; order: -1; }
+            .garlic-copy { padding: 3rem 1.5rem; }
+
+            .gallery { padding: 4rem 0 4rem 1.5rem; }
+            .gal-item { width: 230px; height: 295px; }
+
+            .hours { padding: 4rem 1.5rem; }
+            .hours-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+            footer {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+            .foot-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-logo"><img src="photos/LOGO.png" alt="Garlic High"></div>
+    <div class="nav-tag">Sunnyvale, CA · Jiro-Style Ramen</div>
+    <a href="tel:6698997165" class="nav-cta">Call to Order</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-badge">
+            <div class="badge-dot"></div>
+            Now Open · Sunnyvale
+        </div>
+        <h1 class="hero-h1">
+            GARLIC<br>
+            BREATH?<br>
+            <span class="em">LOVE IT.</span>
+        </h1>
+        <p class="hero-sub">
+            Jiro-style ramen that doesn't hold back. Massive bowls, slow-braised pork, rich broth, and fresh garlic on everything.
+        </p>
+        <div class="hero-actions">
+            <a href="#hours" class="btn-dark">Find Us</a>
+            <a href="#menu" class="btn-ghost">See the Menu →</a>
+        </div>
+    </div>
+    <div class="hero-right">
+        <img src="photos/Hero.png" alt="Garlic High — Savage and Happy Ramen">
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+    <div class="marquee-inner">
+        <span>Savage &amp; Happy Ramen</span><span class="sep">·</span>
+        <span>Fresh Garlic Daily</span><span class="sep">·</span>
+        <span>Jiro Style</span><span class="sep">·</span>
+        <span>Sunnyvale CA</span><span class="sep">·</span>
+        <span>Massive Portions</span><span class="sep">·</span>
+        <span>Rich Pork Broth</span><span class="sep">·</span>
+        <span>Customize Your Bowl</span><span class="sep">·</span>
+        <span>Savage &amp; Happy Ramen</span><span class="sep">·</span>
+        <span>Fresh Garlic Daily</span><span class="sep">·</span>
+        <span>Jiro Style</span><span class="sep">·</span>
+        <span>Sunnyvale CA</span><span class="sep">·</span>
+        <span>Massive Portions</span><span class="sep">·</span>
+        <span>Rich Pork Broth</span><span class="sep">·</span>
+        <span>Customize Your Bowl</span><span class="sep">·</span>
+    </div>
+</div>
+
+<!-- THE BOWL -->
+<section class="bowl" id="menu">
+    <div class="bowl-img">
+        <img src="photos/HG4.png" alt="Mazesoba noodles being lifted">
+    </div>
+    <div class="bowl-copy">
+        <div class="lbl reveal">The Bowl</div>
+        <h2 class="sec-h2 reveal d1">Not your average<br>ramen.</h2>
+        <p class="sec-p reveal d2">
+            Thick, chewy noodles. A broth that took hours. Slow-braised pork chashu stacked high. And fresh garlic — loaded on top, no compromise. Every bowl is a commitment.
+        </p>
+        <div class="reveal d3">
+            <a href="tel:6698997165" class="btn-dark">Call to Order</a>
+        </div>
+    </div>
+</section>
+
+<!-- CUSTOMIZE -->
+<section class="customize">
+    <div class="cx-header">
+        <div class="lbl reveal">Your Bowl, Your Rules</div>
+        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3.2vw, 3rem);">Built exactly the way you want it.</h2>
+    </div>
+    <div class="cx-grid">
+        <div class="cx-card reveal">
+            <div class="cx-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99A10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+            </div>
+            <div class="cx-title">Garlic Level</div>
+            <div class="cx-desc">Light, regular, or savage. We respect your life choices either way.</div>
+            <div class="pills">
+                <div class="pill">Light</div>
+                <div class="pill on">Regular</div>
+                <div class="pill">Extra</div>
+                <div class="pill">Savage</div>
+            </div>
+        </div>
+        <div class="cx-card reveal d1">
+            <div class="cx-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99A10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </div>
+            <div class="cx-title">Umami Fat</div>
+            <div class="cx-desc">Control the richness. Light to extra — you set the depth of the broth.</div>
+            <div class="pills">
+                <div class="pill">Light</div>
+                <div class="pill on">Regular</div>
+                <div class="pill">Extra</div>
+            </div>
+        </div>
+        <div class="cx-card wide reveal d2">
+            <div>
+                <div class="cx-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99A10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <circle cx="3" cy="6" r="1" fill="#C99A10"/>
+                        <circle cx="3" cy="12" r="1" fill="#C99A10"/>
+                        <circle cx="3" cy="18" r="1" fill="#C99A10"/>
+                    </svg>
+                </div>
+                <div class="cx-title">Extra Toppings</div>
+                <div class="cx-desc">Add more of what you love. Each $2–$4 — worth it every time.</div>
+            </div>
+            <div class="pills">
+                <div class="pill">+ Chashu</div>
+                <div class="pill">+ Soft Egg</div>
+                <div class="pill">+ Noodles</div>
+                <div class="pill">+ Garlic</div>
+                <div class="pill">+ Bean Sprouts</div>
+                <div class="pill">+ Cabbage</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GARLIC FEATURE -->
+<section class="garlic-feat">
+    <div class="garlic-copy">
+        <div class="lbl reveal">Our Standard</div>
+        <h2 class="sec-h2 reveal d1">Fresh garlic.<br>Every single bowl.</h2>
+        <p class="sec-p reveal d2">
+            We don't use garlic powder. We don't pre-mince it the day before. Every bowl gets fresh garlic — minced right there, on the spot. That's what "Garlic High" actually means.
+        </p>
+    </div>
+    <div class="garlic-img">
+        <img src="photos/HG5.png" alt="Fresh garlic at Garlic High">
+    </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu-full">
+    <div class="menu-inner">
+        <div class="lbl reveal">What We Serve</div>
+        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">The full menu.</h2>
+        <div class="menu-grid">
+            <div class="menu-category">
+                <div class="menu-cat-title">Ramen</div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-name">To Go Ramen</div>
+                    <div class="menu-item-desc">150g noodles · 1 slice chashu pork · Jiro-style thick curly noodles in rich pork bone broth</div>
+                    <div class="menu-item-price">$20</div>
+                </div>
+            </div>
+            <div class="menu-category">
+                <div class="menu-cat-title">Mazesoba</div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-name">To Go Mazesoba</div>
+                    <div class="menu-item-desc">200g noodles · 1 slice chashu pork · quail eggs · Jiro-style brothless noodles</div>
+                    <div class="menu-item-price">$20</div>
+                </div>
+            </div>
+            <div class="menu-category">
+                <div class="menu-cat-title">Mini Bowl</div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-name">Savage Chashu Bowl</div>
+                    <div class="menu-item-price">$5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OC BANNER -->
+<section class="oc-banner">
+    <div class="oc-pill">Coming Soon</div>
+    <h2 class="oc-h2 reveal">Orange County's about<br>to smell different.</h2>
+    <p class="oc-sub reveal d1">A new Garlic High is on its way to OC. Stay tuned.</p>
+</section>
+
+<!-- MERCH -->
+<section class="merch-section">
+    <div class="merch-top">
+        <div class="merch-hero-img">
+            <img src="photos/Hero.png" alt="Garlic High merch">
+        </div>
+        <div class="merch-headline">
+            <div class="merch-tag reveal">Merch</div>
+            <h2 class="merch-h2 reveal d1">
+                <span class="savage">Savage</span>
+                &amp; Happy.
+            </h2>
+            <p class="merch-sub reveal d2">Garlic breath optional. T-shirt mandatory.</p>
+        </div>
+    </div>
+    <div class="merch-bottom">
+        <div class="merch-card reveal">
+            <div class="merch-name">"Logo" White T-Shirt</div>
+            <div class="merch-price">$30</div>
+        </div>
+        <div class="merch-card reveal d1">
+            <div class="merch-name">"Logo" Yellow T-Shirt</div>
+            <div class="merch-price">$30</div>
+        </div>
+        <div class="merch-card reveal d2">
+            <div class="merch-name">"Garlic Love" T-Shirt</div>
+            <div class="merch-price">$45</div>
+        </div>
+        <div class="merch-card reveal d3">
+            <div class="merch-name">"Logo" Black T-Shirt</div>
+            <div class="merch-price">$30</div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+    <div class="gallery-hdr">
+        <div class="lbl reveal">The Spread</div>
+        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">It looks as good as it tastes.</h2>
+    </div>
+    <div class="slideshow">
+        <div class="slide-track" id="slideTrack"></div>
+        <div class="slide-controls">
+            <button class="slide-btn" id="prevBtn" aria-label="Previous">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="slide-dots" id="slideDots"></div>
+            <button class="slide-btn" id="nextBtn" aria-label="Next">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- HOURS + LOCATION -->
+<section class="hours" id="hours">
+    <div class="hours-inner">
+        <div>
+            <div class="lbl reveal">Hours</div>
+            <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">Come in.<br>We're ready.</h2>
+            <div class="hours-rows reveal d2">
+                <div class="h-row">
+                    <span class="h-day">Monday</span>
+                    <span class="h-time closed">Closed</span>
+                </div>
+                <div class="h-row">
+                    <span class="h-day">Tuesday – Thursday</span>
+                    <span class="h-time">11:30am–1:30pm · 5:30–8:30pm</span>
+                </div>
+                <div class="h-row">
+                    <span class="h-day">Friday</span>
+                    <span class="h-time">11:30am–1:30pm · 5:30–9:00pm</span>
+                </div>
+                <div class="h-row">
+                    <span class="h-day">Saturday</span>
+                    <span class="h-time">11:30am–2:00pm · 5:30–9:00pm</span>
+                </div>
+                <div class="h-row">
+                    <span class="h-day">Sunday</span>
+                    <span class="h-time">11:30am–2:00pm · 5:30–8:30pm</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="lbl reveal">Location</div>
+            <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">Sunnyvale, CA</h2>
+            <div class="reveal d2">
+                <div class="loc-address">107 West Maude Ave<br>Sunnyvale, CA 94085</div>
+                <div class="loc-phone">(669) 899-7165</div>
+                <a href="https://maps.google.com/?q=107+West+Maude+Ave+Sunnyvale+CA+94085" target="_blank" class="btn-dark">Get Directions</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo"><img src="photos/LOGO.png" alt="Garlic High"></div>
+    <div class="foot-copy">© 2026 Garlic High · Sunnyvale, CA</div>
+    <div class="foot-links">
+        <a href="tel:6698997165">Call Us</a>
+        <a href="https://www.instagram.com/garlic.high_sunnyvale" target="_blank">Instagram</a>
+        <a href="https://www.yelp.com/biz/garlic-high-sunnyvale" target="_blank">Yelp</a>
+    </div>
+</footer>
+
+<script>
+    // Slideshow
+    const slides = [
+        { src: 'photos/HG7.png', alt: 'Spicy ramen' },
+        { src: 'photos/HG2.png', alt: 'Chashu ramen bowl' },
+        { src: 'photos/HG3.png', alt: 'Garlic ramen bowl' },
+        { src: 'photos/HG4.png', alt: 'Mazesoba noodles' },
+        { src: 'photos/HG6.png', alt: 'Ramen overhead' },
+        { src: 'photos/HG8.png', alt: 'Restaurant vibe bowl' },
+    ];
+
+    let current = 0;
+    const track = document.getElementById('slideTrack');
+    const dotsEl = document.getElementById('slideDots');
+
+    function prev(i) { return (i - 1 + slides.length) % slides.length; }
+    function next(i) { return (i + 1) % slides.length; }
+
+    function render() {
+        track.innerHTML = '';
+        const order = [prev(current), current, next(current)];
+        order.forEach((idx, pos) => {
+            const el = document.createElement('div');
+            el.className = pos === 1 ? 'slide-main' : 'slide-side';
+            el.innerHTML = `<img src="${slides[idx].src}" alt="${slides[idx].alt}">`;
+            if (pos !== 1) el.addEventListener('click', () => { current = idx; render(); });
+            track.appendChild(el);
+        });
+        dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // Dots
+    slides.forEach((_, i) => {
+        const d = document.createElement('div');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => { current = i; render(); });
+        dotsEl.appendChild(d);
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => { current = prev(current); render(); });
+    document.getElementById('nextBtn').addEventListener('click', () => { current = next(current); render(); });
+
+    // Auto-advance
+    setInterval(() => { current = next(current); render(); }, 3500);
+
+    render();
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Pill toggle
+    document.querySelectorAll('.pills').forEach(group => {
+        group.querySelectorAll('.pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                group.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+                pill.classList.add('on');
+            });
+        });
+    });
+</script>
+</body>
+</html>
