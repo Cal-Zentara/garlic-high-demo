@@ -271,6 +271,24 @@
             padding: 0 2rem;
         }
 
+        .marquee-inner .m-item {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+
+        .marquee-inner .m-item .m-en,
+        .marquee-inner .m-item .m-jp {
+            padding: 0;
+        }
+
+        .marquee-inner .m-item .m-jp {
+            text-transform: none;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+        }
+
         .sep { opacity: 0.4; }
 
         @keyframes ticker {
@@ -979,20 +997,20 @@
 <!-- MARQUEE -->
 <div class="marquee-wrap">
     <div class="marquee-inner">
-        <span>Savage &amp; Happy Ramen　あばれてしあわせラーメン</span><span class="sep">·</span>
-        <span>Fresh Garlic Daily　まいにちしんせんニンニク</span><span class="sep">·</span>
-        <span>Jiro Style　ジロースタイル</span><span class="sep">·</span>
-        <span>Sunnyvale CA　サニーベール</span><span class="sep">·</span>
-        <span>Massive Portions　おおもり</span><span class="sep">·</span>
-        <span>Rich Pork Broth　のうこうトンコツ</span><span class="sep">·</span>
-        <span>Customize Your Bowl　カスタムどんぶり</span><span class="sep">·</span>
-        <span>Savage &amp; Happy Ramen　あばれてしあわせラーメン</span><span class="sep">·</span>
-        <span>Fresh Garlic Daily　まいにちしんせんニンニク</span><span class="sep">·</span>
-        <span>Jiro Style　ジロースタイル</span><span class="sep">·</span>
-        <span>Sunnyvale CA　サニーベール</span><span class="sep">·</span>
-        <span>Massive Portions　おおもり</span><span class="sep">·</span>
-        <span>Rich Pork Broth　のうこうトンコツ</span><span class="sep">·</span>
-        <span>Customize Your Bowl　カスタムどんぶり</span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Savage &amp; Happy Ramen</span><span class="m-jp">あばれてしあわせラーメン</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Fresh Garlic Daily</span><span class="m-jp">まいにちしんせんニンニク</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Jiro Style</span><span class="m-jp">ジロースタイル</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Sunnyvale CA</span><span class="m-jp">サニーベール</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Massive Portions</span><span class="m-jp">おおもり</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Rich Pork Broth</span><span class="m-jp">のうこうトンコツ</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Customize Your Bowl</span><span class="m-jp">カスタムどんぶり</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Savage &amp; Happy Ramen</span><span class="m-jp">あばれてしあわせラーメン</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Fresh Garlic Daily</span><span class="m-jp">まいにちしんせんニンニク</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Jiro Style</span><span class="m-jp">ジロースタイル</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Sunnyvale CA</span><span class="m-jp">サニーベール</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Massive Portions</span><span class="m-jp">おおもり</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Rich Pork Broth</span><span class="m-jp">のうこうトンコツ</span></span><span class="sep">·</span>
+        <span class="m-item"><span class="m-en">Customize Your Bowl</span><span class="m-jp">カスタムどんぶり</span></span><span class="sep">·</span>
     </div>
 </div>
 
