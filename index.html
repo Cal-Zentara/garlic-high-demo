@@ -94,6 +94,19 @@
         /* ─── HERO ─── */
         .hero {
             display: flex;
+            position: relative;
+            overflow: visible;
+            z-index: 2;
+        }
+
+        .hero-girl {
+            position: absolute;
+            bottom: 0;
+            right: 4%;
+            height: clamp(240px, 36vw, 480px);
+            width: auto;
+            z-index: 20;
+            pointer-events: none;
         }
 
         .hero-left {
@@ -756,8 +769,18 @@
             margin: 0 auto;
         }
 
-        .menu-section .lbl { color: rgba(28,26,23,0.5); }
-        .menu-section .sec-h2 { color: var(--ink); }
+        .menu-section .lbl {
+            color: rgba(28,26,23,0.7);
+            display: inline-block;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.4) 65%, transparent 100%);
+            padding: 8px 40px;
+        }
+        .menu-section .sec-h2 {
+            color: var(--ink);
+            display: inline-block;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.4) 65%, transparent 100%);
+            padding: 12px 60px;
+        }
 
         .menu-grid {
             display: grid;
@@ -1294,6 +1317,9 @@
             .nav-logo img { height: 53px; }
             .nav-cta { font-size: 0.74rem; padding: 0.5rem 1rem; }
 
+            /* Hero copy — shrink so it fits narrow phones without overflow */
+            .hero-h1 { font-size: clamp(2.6rem, 11vw, 4.2rem); }
+
             .hero {
                 grid-template-columns: 1fr;
                 min-height: 100dvh;
@@ -1420,9 +1446,11 @@
             </div>
         </div>
     </div>
+    <img class="hero-girl" src="photos/AnimeGirl.png" alt="Garlic High girl">
 </section>
 
 <!-- MARQUEE -->
+
 <div class="marquee-wrap">
     <div class="marquee-inner">
         <div class="marquee-group">
