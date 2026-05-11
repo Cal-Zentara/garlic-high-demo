@@ -99,14 +99,83 @@
             z-index: 2;
         }
 
-        .hero-girl {
+        .hero-girl-wrap {
             position: absolute;
             bottom: 0;
             right: 4%;
             height: clamp(240px, 36vw, 480px);
-            width: auto;
             z-index: 20;
             pointer-events: none;
+        }
+
+        .hero-girl-wrap img {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+
+        .girl-bubble {
+            position: absolute;
+            top: 4%;
+            left: -70%;
+            background: #fff;
+            border: 3px solid var(--ink);
+            border-radius: 1.5rem;
+            padding: 0.7rem 1.2rem 0.7rem 1.1rem;
+            font-family: 'Anton', sans-serif;
+            color: var(--ink);
+            white-space: nowrap;
+            text-align: center;
+            transform: rotate(-4deg);
+            box-shadow: 4px 4px 0 var(--ink);
+            animation: bubblePop 2.4s ease-in-out infinite;
+            line-height: 1;
+        }
+
+        @keyframes bubblePop {
+            0%, 100% { transform: rotate(-4deg) scale(1); }
+            50%       { transform: rotate(-4deg) scale(1.06); }
+        }
+
+        .bubble-line1 {
+            display: block;
+            font-size: clamp(1rem, 1.8vw, 1.35rem);
+            background: var(--yellow);
+            color: var(--ink);
+            border-radius: 0.4rem;
+            padding: 0.1rem 0.35rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.2rem;
+        }
+
+        .bubble-line2 {
+            display: block;
+            font-size: clamp(0.78rem, 1.3vw, 1rem);
+            letter-spacing: 0.08em;
+            opacity: 0.75;
+        }
+
+        .girl-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            right: 22px;
+            width: 0; height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 16px solid var(--ink);
+        }
+
+        .girl-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -11px;
+            right: 23px;
+            width: 0; height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #fff;
+            z-index: 1;
         }
 
         .hero-left {
@@ -889,7 +958,7 @@
 
         .merch-hero-img {
             overflow: hidden;
-            background: #111;
+            background: #d6e8f0;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -1311,6 +1380,36 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
+            .girl-bubble {
+                left: -48%;
+                top: 18%;
+            }
+
+            .girl-bubble::after {
+                right: -50px;
+                bottom: auto;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 14px;
+                background: var(--ink);
+                clip-path: polygon(0 20%, 100% 50%, 0 80%);
+                border: none;
+            }
+
+            .girl-bubble::before {
+                right: -44px;
+                bottom: auto;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 46px;
+                height: 10px;
+                background: white;
+                clip-path: polygon(0 20%, 100% 50%, 0 80%);
+                border: none;
+                z-index: 1;
+            }
+
             nav { padding: 0.75rem 1.25rem; }
             .nav-tag { display: none; }
             .nav-center img { height: 40px; }
@@ -1446,7 +1545,13 @@
             </div>
         </div>
     </div>
-    <img class="hero-girl" src="photos/AnimeGirl.png" alt="Garlic High girl">
+    <div class="hero-girl-wrap">
+        <div class="girl-bubble">
+            <span class="bubble-line1">SAVAGE</span>
+            <span class="bubble-line2">&amp; HAPPY</span>
+        </div>
+        <img src="photos/AnimeGirl.png" alt="Garlic High girl">
+    </div>
 </section>
 
 <!-- MARQUEE -->
@@ -1513,66 +1618,34 @@
     </div>
 </section>
 
-<!-- CUSTOMIZE -->
-<section class="customize">
-    <div class="cx-header">
-        <div class="lbl reveal">Your Bowl, Your Rules</div>
-        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3.2vw, 3rem);">Built exactly the way you want it.</h2>
+<!-- MERCH -->
+<section class="merch-section">
+    <div class="merch-top">
+        <div class="merch-hero-img">
+            <img src="photos/Hero.png" alt="Garlic High merch">
+        </div>
+        <div class="merch-headline">
+            <div class="merch-tag">Wear the Brand</div>
+            <h2 class="merch-h2">Rep the<br><span class="savage">Ramen.</span></h2>
+            <p class="merch-sub">Order at the counter or DM us on Instagram.</p>
+        </div>
     </div>
-    <div class="cx-grid">
-        <div class="cx-card reveal">
-            <div class="cx-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99A10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                </svg>
-            </div>
-            <div class="cx-title">Garlic Level</div>
-            <div class="cx-desc">Light, regular, or savage. We respect your life choices either way.</div>
-            <div class="pills">
-                <div class="pill">Light</div>
-                <div class="pill on">Regular</div>
-                <div class="pill">Extra</div>
-                <div class="pill">Savage</div>
-            </div>
+    <div class="merch-bottom">
+        <div class="merch-card reveal">
+            <div class="merch-name">Logo White T-Shirt</div>
+            <div class="merch-price">$30</div>
         </div>
-        <div class="cx-card reveal d1">
-            <div class="cx-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99A10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                </svg>
-            </div>
-            <div class="cx-title">Umami Fat</div>
-            <div class="cx-desc">Control the richness. Light to extra — you set the depth of the broth.</div>
-            <div class="pills">
-                <div class="pill">Light</div>
-                <div class="pill on">Regular</div>
-                <div class="pill">Extra</div>
-            </div>
+        <div class="merch-card reveal d1">
+            <div class="merch-name">Logo Yellow T-Shirt</div>
+            <div class="merch-price">$30</div>
         </div>
-        <div class="cx-card wide reveal d2">
-            <div>
-                <div class="cx-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C99A10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="8" y1="6" x2="21" y2="6"/>
-                        <line x1="8" y1="12" x2="21" y2="12"/>
-                        <line x1="8" y1="18" x2="21" y2="18"/>
-                        <circle cx="3" cy="6" r="1" fill="#C99A10"/>
-                        <circle cx="3" cy="12" r="1" fill="#C99A10"/>
-                        <circle cx="3" cy="18" r="1" fill="#C99A10"/>
-                    </svg>
-                </div>
-                <div class="cx-title">Extra Toppings</div>
-                <div class="cx-desc">Add more of what you love. Each $2–$4 — worth it every time.</div>
-            </div>
-            <div class="pills">
-                <div class="pill">+ Chashu</div>
-                <div class="pill">+ Soft Egg</div>
-                <div class="pill">+ Noodles</div>
-                <div class="pill">+ Garlic</div>
-                <div class="pill">+ Bean Sprouts</div>
-                <div class="pill">+ Cabbage</div>
-            </div>
+        <div class="merch-card reveal d2">
+            <div class="merch-name">"Garlic Love" T-Shirt</div>
+            <div class="merch-price">$45</div>
+        </div>
+        <div class="merch-card reveal d3">
+            <div class="merch-name">Logo Black T-Shirt</div>
+            <div class="merch-price">$30</div>
         </div>
     </div>
 </section>
@@ -1643,7 +1716,7 @@
     <div class="foot-links">
         <a href="tel:6698997165">Call Us</a>
         <a href="https://www.instagram.com/garlic.high_sunnyvale" target="_blank">Instagram</a>
-        <a href="https://www.yelp.com/biz/garlic-high-sunnyvale" target="_blank">Yelp</a>
+        <a href="https://www.yelp.com/biz/garlic-high-yorba-linda?osq=garlic+high" target="_blank">Yelp</a>
     </div>
 </footer>
 
