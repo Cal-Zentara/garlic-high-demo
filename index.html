@@ -1057,6 +1057,55 @@
             .merch-bottom { grid-template-columns: 1fr 1fr; padding: 1rem 1.5rem 2rem; }
         }
 
+        /* ─── FRANCHISING ─── */
+        .franchise-section {
+            background-color: var(--ink);
+            padding: 5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .franchise-pill {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--ink);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .franchise-h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 900;
+            line-height: 0.92;
+            letter-spacing: -0.035em;
+            color: var(--cream);
+            margin-bottom: 1.25rem;
+        }
+
+        .franchise-h2 .em-yellow {
+            color: var(--yellow);
+            display: block;
+        }
+
+        .franchise-sub {
+            font-size: 1.05rem;
+            color: rgba(255,254,247,0.55);
+            max-width: 36ch;
+            margin: 0 auto 2rem;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 768px) {
+            .franchise-section { padding: 4rem 1.5rem; }
+        }
+
         /* ─── GALLERY SLIDESHOW ─── */
         .gallery {
             padding: 3.5rem 3rem;
@@ -1317,14 +1366,17 @@
         }
 
         @media (max-width: 768px) {
+            .poster-sticky { background: #000; }
+            .poster-pin    { background: #000; }
             .poster-image {
-                object-position: right center;
+                object-fit: cover;
+                object-position: 100% 100%;
             }
         }
 
         .poster-cue {
             position: absolute;
-            bottom: 22vh;
+            bottom: 12vh;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -1387,6 +1439,72 @@
         .reveal.in {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* ─── JIRO SECTION ─── */
+        .jiro-section {
+            padding: 4rem 3rem;
+            background: var(--cream);
+        }
+
+        .jiro-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .jiro-anatomy {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .jiro-history {
+            background: var(--ink);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            color: var(--cream);
+        }
+
+        .jiro-history .lbl  { color: var(--yellow); }
+        .jiro-history .sec-h2 { color: var(--cream); }
+        .jiro-history .sec-p  { color: rgba(255,254,247,0.6); }
+
+        .timeline {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .tl-item {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255,254,247,0.1);
+        }
+
+        .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .tl-year {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.3rem;
+            color: var(--yellow);
+            letter-spacing: 0.04em;
+            flex-shrink: 0;
+            width: 5.5rem;
+            line-height: 1.2;
+        }
+
+        .tl-text {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: rgba(255,254,247,0.7);
+            padding-top: 0.1rem;
         }
 
         /* ─── RESPONSIVE ─── */
@@ -1453,6 +1571,9 @@
             }
             .hero-stats { gap: 1.75rem; margin-top: 2.5rem; padding-top: 2rem; }
 
+            .jiro-section { padding: 3rem 1.5rem; }
+            .jiro-inner { grid-template-columns: 1fr; }
+
             .bowl {
                 grid-template-columns: 1fr;
             }
@@ -1518,11 +1639,6 @@
             <div class="badge-dot"></div>
             Now Open · 3 California Locations
         </div>
-        <h1 class="hero-h1">
-            GARLIC<br>
-            BREATH...??<br>
-            <span class="em">I LOVE IT</span>
-        </h1>
         <p class="hero-sub">
             Jiro-style ramen that doesn't hold back. Massive bowls, slow-braised pork, rich broth, and fresh garlic on everything.
         </p>
@@ -1558,8 +1674,9 @@
     </div>
     <div class="hero-girl-wrap">
         <div class="girl-bubble">
-            <span class="bubble-line1">SAVAGE</span>
-            <span class="bubble-line2">&amp; HAPPY</span>
+            <span class="bubble-line1">JIRO STYLE</span>
+            <span class="bubble-line2">THICK. GARLICKY.</span>
+            <span class="bubble-line2">NO MERCY.</span>
         </div>
         <img src="photos/AnimeGirl.png" alt="Garlic High girl">
     </div>
@@ -1603,6 +1720,36 @@
         </div>
     </div>
 </div>
+
+<!-- JIRO EXPLAINED -->
+<section class="jiro-section">
+    <div class="jiro-inner">
+        <div class="jiro-anatomy reveal">
+            <div class="lbl">The Bowl</div>
+            <h2 class="sec-h2" style="font-size: clamp(1.8rem, 2.8vw, 2.6rem);">What is<br>Jiro-Style?</h2>
+            <p class="sec-p" style="margin-top: 0.75rem;">A bold, hearty Japanese ramen known for its rich pork-based broth, extra-thick noodles, and generous volume. Famous for its filling portions and powerful garlic-forward flavor.</p>
+            <p class="sec-p">Every bowl comes topped with tender pork chashu, a mountain of bean sprouts and cabbage, chopped garlic, and savory pork back fat for extra richness.</p>
+        </div>
+        <div class="jiro-history reveal d1">
+            <div class="lbl">The History</div>
+            <h2 class="sec-h2" style="font-size: clamp(1.8rem, 2.8vw, 2.6rem);">Born in Tokyo.<br>Loved everywhere.</h2>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-year">1968</div>
+                    <div class="tl-text">The original Ramen Jiro opens in Tokyo, introducing a new style of bold, heavy ramen.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">1970s</div>
+                    <div class="tl-text">Famous around Mita for massive portions, thick noodles, and rich pork-based flavor.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-year">Today</div>
+                    <div class="tl-text">Its bold style inspires "Jiro-ka" ramen shops across Japan — and now California.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- THE BOWL -->
 <section class="bowl" id="menu">
@@ -1698,6 +1845,17 @@
 <!-- OC BANNER -->
 
 <!-- MERCH -->
+
+<!-- FRANCHISING -->
+<section class="franchise-section">
+    <div class="franchise-pill">Now Available</div>
+    <h2 class="franchise-h2">
+        We Do
+        <span class="em-yellow">Franchising.</span>
+    </h2>
+    <p class="franchise-sub">Bring Garlic High to your city. Own the ramen. Run the savage. Bring the garlic.</p>
+    <a href="mailto:info@garlichigh.com" class="btn-dark" style="background: var(--yellow); color: var(--ink);">Get in Touch</a>
+</section>
 
 <!-- GALLERY -->
 <section class="gallery">
