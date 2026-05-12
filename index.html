@@ -243,13 +243,34 @@
             border-radius: 3px;
         }
 
+        .hero-h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 0.95;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin: 0.5rem 0 1rem;
+            text-transform: uppercase;
+        }
+        .hl {
+            color: #FFD600;
+            font-weight: 700;
+        }
+
+        .hero-h1-accent {
+            color: #FFD600;
+            -webkit-text-stroke: 2px #111;
+            paint-order: stroke fill;
+        }
+
         .hero-sub {
-            font-size: 1.05rem;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--ink-soft);
-            line-height: 1.65;
+            line-height: 1.5;
             max-width: 40ch;
             margin-bottom: 1.5rem;
-            font-weight: 400;
         }
 
         .hero-actions {
@@ -698,8 +719,10 @@
         }
 
         .sec-p {
-            font-size: 1rem;
-            line-height: 1.72;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.55;
             color: var(--ink-soft);
             max-width: 38ch;
             margin-bottom: 1.5rem;
@@ -1007,10 +1030,22 @@
         }
 
         .merch-sub {
-            font-size: 0.9rem;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
             color: rgba(255,254,247,0.6);
             margin-top: 1rem;
             line-height: 1.5;
+        }
+
+        .merch-surfer {
+            width: 100%;
+            overflow: hidden;
+        }
+        .merch-surfer img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .merch-bottom {
@@ -1052,7 +1087,8 @@
             .menu-section { padding: 3rem 1.5rem; }
             .menu-grid { grid-template-columns: 1fr; }
             .merch-top { grid-template-columns: 1fr; }
-            .merch-hero-img { min-height: 260px; }
+            .merch-hero-img { min-height: unset; }
+            .merch-hero-img img { width: 100%; height: auto; max-height: unset; }
             .merch-headline { padding: 2rem 1.5rem 1.5rem; }
             .merch-bottom { grid-template-columns: 1fr 1fr; padding: 1rem 1.5rem 2rem; }
         }
@@ -1095,11 +1131,13 @@
         }
 
         .franchise-sub {
-            font-size: 1.05rem;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: rgba(255,254,247,0.55);
             max-width: 36ch;
             margin: 0 auto 2rem;
-            line-height: 1.65;
+            line-height: 1.5;
         }
 
         @media (max-width: 768px) {
@@ -1362,7 +1400,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center;
+            object-position: center bottom;
         }
 
         @media (max-width: 768px) {
@@ -1370,13 +1408,13 @@
             .poster-pin    { background: #000; }
             .poster-image {
                 object-fit: cover;
-                object-position: 100% 100%;
+                object-position: center bottom;
             }
         }
 
         .poster-cue {
             position: absolute;
-            bottom: 12vh;
+            bottom: 10vh;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -1396,7 +1434,7 @@
         }
 
         .poster-cue img {
-            width: 150px;
+            width: 188px;
             height: auto;
             opacity: 1;
         }
@@ -1611,7 +1649,7 @@
 <section class="poster-pin">
     <div class="poster-sticky">
         <div class="poster-frame" id="posterFrame">
-        <img class="poster-image" src="photos/MoreGarlic.png" alt="Garlic High — Savage and Happy Ramen">
+        <img class="poster-image" src="photos/Newposter4.png" alt="Garlic High — Savage and Happy Ramen">
         <div class="poster-cue" id="posterCue">
             <img src="photos/LOGO.png" alt="Garlic High">
             <svg width="33" height="33" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1639,8 +1677,9 @@
             <div class="badge-dot"></div>
             Now Open · 3 California Locations
         </div>
+        <h1 class="hero-h1">JIRO STYLE<br><span class="hero-h1-accent">RAMEN</span></h1>
         <p class="hero-sub">
-            Jiro-style ramen that doesn't hold back. Massive bowls, slow-braised pork, rich broth, and fresh garlic on everything.
+            Thick noodles. Massive bowls. More garlic than you asked for. This is Jiro-style ramen — and it doesn't apologize.
         </p>
         <div class="hero-actions">
             <div class="loc-dropdown">
@@ -1727,8 +1766,8 @@
         <div class="jiro-anatomy reveal">
             <div class="lbl">The Bowl</div>
             <h2 class="sec-h2" style="font-size: clamp(1.8rem, 2.8vw, 2.6rem);">What is<br>Jiro-Style?</h2>
-            <p class="sec-p" style="margin-top: 0.75rem;">A bold, hearty Japanese ramen known for its rich pork-based broth, extra-thick noodles, and generous volume. Famous for its filling portions and powerful garlic-forward flavor.</p>
-            <p class="sec-p">Every bowl comes topped with tender pork chashu, a mountain of bean sprouts and cabbage, chopped garlic, and savory pork back fat for extra richness.</p>
+            <p class="sec-p" style="margin-top: 0.75rem;">Extra-thick noodles, a rich pork broth that takes all day, and fresh garlic piled on with zero restraint. Every bowl hits hard.</p>
+            <p class="sec-p">Pork chashu. Bean sprouts. Cabbage. Chopped garlic. Pork back fat. The kind of bowl that makes you sweat and come back the next day.</p>
         </div>
         <div class="jiro-history reveal d1">
             <div class="lbl">The History</div>
@@ -1780,13 +1819,16 @@
 <section class="merch-section">
     <div class="merch-top">
         <div class="merch-hero-img">
-            <img src="photos/HGsurfer.png" alt="Garlic High merch">
+            <img src="photos/shirts2.png" alt="Garlic High merch">
         </div>
         <div class="merch-headline">
             <div class="merch-tag">Wear the Brand</div>
             <h2 class="merch-h2">Rep the<br><span class="savage">Ramen.</span></h2>
-            <p class="merch-sub">Order at the counter or DM us on Instagram.</p>
+            <p class="merch-sub">Grab one at the counter. Wear it everywhere. Smell like garlic forever.</p>
         </div>
+    </div>
+    <div class="merch-surfer">
+        <img src="photos/HGsurfer2.png" alt="Garlic High surfer tee">
     </div>
     <div class="merch-bottom">
         <div class="merch-card reveal">
@@ -1853,7 +1895,7 @@
         We Do
         <span class="em-yellow">Franchising.</span>
     </h2>
-    <p class="franchise-sub">Bring Garlic High to your city. Own the ramen. Run the savage. Bring the garlic.</p>
+    <p class="franchise-sub">Your city needs this. Own the bowl, run the garlic, build something savage.</p>
     <a href="mailto:info@garlichigh.com" class="btn-dark" style="background: var(--yellow); color: var(--ink);">Get in Touch</a>
 </section>
 
@@ -1861,7 +1903,7 @@
 <section class="gallery">
     <div class="gallery-hdr">
         <div class="lbl reveal">The Spread</div>
-        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">It looks as good as it tastes.</h2>
+        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">Proof it's worth the garlic breath.</h2>
     </div>
     <div class="slideshow">
         <div class="slide-track" id="slideTrack"></div>
@@ -1979,11 +2021,22 @@
 
     // Slideshow
     const slides = [
-        { src: 'photos/HG7.png', alt: 'Spicy ramen' },
-        { src: 'photos/HG2.png', alt: 'Chashu ramen bowl' },
-        { src: 'photos/HG3.png', alt: 'Garlic ramen bowl' },
-        { src: 'photos/HG6.png', alt: 'Ramen overhead' },
-        { src: 'photos/HG8.png', alt: 'Restaurant vibe bowl' },
+        { src: 'photos/IMG_3497.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4314 - Copy.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4322 - Copy.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4322.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4350.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4353.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4426.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4427 - Copy.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4430 - Copy.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4434 - Copy.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4719 - Copy.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4721 - Copy.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4760 - Copy.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/Photoroom_20260413_012847.png', alt: 'Garlic High ramen' },
+        { src: 'photos/Photoroom_20260413_012917.png', alt: 'Garlic High bowl' },
+        { src: 'photos/Photoroom_20260413_012943.png', alt: 'Garlic High ramen' },
     ];
 
     let current = 0;
