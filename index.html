@@ -39,9 +39,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 254, 247, 0.88);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            background: #ffffff;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
             border-bottom: 1px solid var(--border);
         }
 
@@ -56,6 +56,7 @@
             height: 56px;
             width: auto;
             display: block;
+            mix-blend-mode: darken;
         }
 
         .nav-logo img {
@@ -261,6 +262,13 @@
             color: #FFD600;
             -webkit-text-stroke: 2px #111;
             paint-order: stroke fill;
+        }
+
+        .hero-logo-img {
+            display: block;
+            width: clamp(220px, 38vw, 480px);
+            height: auto;
+            margin: 0.5rem 0 1rem;
         }
 
         .hero-sub {
@@ -576,8 +584,24 @@
         .bowl {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto 1fr;
             min-height: 80vh;
             position: relative;
+            background: var(--yellow);
+        }
+
+        .bowl-header {
+            grid-column: 1 / -1;
+            padding: 4rem 3rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bowl-header img {
+            width: clamp(280px, 50vw, 640px);
+            height: auto;
+            mix-blend-mode: multiply;
         }
 
         .bowl-img {
@@ -600,6 +624,40 @@
         }
 
         .bowl-img:hover img { transform: scale(1.03); }
+
+        .tap-cue {
+            position: absolute;
+            top: 30%;
+            right: 22%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            pointer-events: none;
+            z-index: 4;
+            animation: tapFloat 2.4s ease-in-out infinite;
+        }
+
+        .tap-cue-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            color: var(--ink);
+            white-space: nowrap;
+            transform: rotate(30deg);
+            display: block;
+        }
+
+        .tap-cue-arrow {
+            width: 22px;
+            height: 22px;
+            transform: rotate(90deg);
+        }
+
+        @keyframes tapFloat {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-7px); }
+        }
 
         .bowl-label {
             position: absolute;
@@ -850,82 +908,6 @@
         .garlic-img:hover img { transform: scale(1.03); }
 
         /* ─── MENU ─── */
-        .menu-section {
-            padding: 4rem 3rem;
-            background-color: var(--yellow);
-            background-image:
-                conic-gradient(rgba(0,0,0,0.08) 25%, transparent 0 50%, rgba(0,0,0,0.08) 0 75%, transparent 0),
-                url('photos/Background.jpg');
-            background-size: 90px 90px, 280px auto;
-            background-repeat: repeat, repeat;
-        }
-
-        .menu-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .menu-section .lbl {
-            color: rgba(28,26,23,0.7);
-            display: inline-block;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.4) 65%, transparent 100%);
-            padding: 8px 40px;
-        }
-        .menu-section .sec-h2 {
-            color: var(--ink);
-            display: inline-block;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.4) 65%, transparent 100%);
-            padding: 12px 60px;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .menu-category { }
-
-        .menu-cat-title {
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(28,26,23,0.5);
-            margin-bottom: 0.6rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1.5px solid rgba(28,26,23,0.15);
-        }
-
-        .menu-item {
-            background: var(--white);
-            border-radius: 0.875rem;
-            padding: 1rem 1.1rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .menu-item-name {
-            font-size: 0.82rem;
-            font-weight: 800;
-            letter-spacing: 0.01em;
-            color: var(--ink);
-            margin-bottom: 0.25rem;
-        }
-
-        .menu-item-desc {
-            font-size: 0.75rem;
-            color: var(--ink-soft);
-            line-height: 1.5;
-            margin-bottom: 0.4rem;
-        }
-
-        .menu-item-price {
-            font-size: 0.88rem;
-            font-weight: 800;
-            color: var(--ink);
-        }
-
         /* ─── OC BANNER ─── */
         .oc-banner {
             background-color: var(--yellow);
@@ -1050,9 +1032,7 @@
 
         .merch-bottom {
             padding: 2rem 3rem 3rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.75rem;
+            display: flex;
         }
 
         .merch-card {
@@ -1084,9 +1064,7 @@
         }
 
         @media (max-width: 768px) {
-            .menu-section { padding: 3rem 1.5rem; }
-            .menu-grid { grid-template-columns: 1fr; }
-            .merch-top { grid-template-columns: 1fr; }
+.merch-top { grid-template-columns: 1fr; }
             .merch-hero-img { min-height: unset; }
             .merch-hero-img img { width: 100%; height: auto; max-height: unset; }
             .merch-headline { padding: 2rem 1.5rem 1.5rem; }
@@ -1603,7 +1581,6 @@
             .hero-right { margin-top: 0; }
 
             .marquee-wrap,
-            .menu-section,
             .oc-banner {
                 background-size: 60px 60px, 200px auto;
             }
@@ -1664,7 +1641,7 @@
 <nav>
     <div class="nav-logo"><img src="photos/LOGO.png" alt="Garlic High"></div>
     <div class="nav-center">
-        <img src="photos/HeroRamen.png" alt="Jiro-style ramen">
+        <img src="photos/HeroRamen.jpg" alt="Jiro-style ramen">
         <div class="nav-tag">Sunnyvale · Yorba Linda · Torrance, CA · Jiro-Style Ramen</div>
     </div>
     <a href="https://order.mealkeyway.com/customer/release/index?mid=666b6c6c4332397336594769457378694643467565513d3d#/main" target="_blank" class="nav-cta">Order for Pickup</a>
@@ -1677,7 +1654,7 @@
             <div class="badge-dot"></div>
             Now Open · 3 California Locations
         </div>
-        <h1 class="hero-h1">JIRO STYLE<br><span class="hero-h1-accent">RAMEN</span></h1>
+        <img src="photos/LOGO.png" alt="Garlic High — Savage &amp; Happy Ramen" class="hero-logo-img">
         <p class="hero-sub">
             Thick noodles. Massive bowls. More garlic than you asked for. This is Jiro-style ramen — and it doesn't apologize.
         </p>
@@ -1712,10 +1689,10 @@
         </div>
     </div>
     <div class="hero-girl-wrap">
-        <div class="girl-bubble">
-            <span class="bubble-line1">JIRO STYLE</span>
-            <span class="bubble-line2">THICK. GARLICKY.</span>
-            <span class="bubble-line2">NO MERCY.</span>
+        <div class="girl-bubble" style="text-align:center;">
+            <span class="bubble-line2">Broth</span>
+            <span class="bubble-line2">or</span>
+            <span class="bubble-line2">no broth?</span>
         </div>
         <img src="photos/AnimeGirl.png" alt="Garlic High girl">
     </div>
@@ -1792,15 +1769,30 @@
 
 <!-- THE BOWL -->
 <section class="bowl" id="menu">
+    <div class="bowl-header">
+        <img src="photos/JiroLogo.png.png" alt="二郎系ラーメン — Jiro Style Ramen">
+    </div>
     <div class="bowl-img bowl-toggle" id="ramenToggle">
         <img class="tog-img tog-active" src="photos/Ramen2.png" alt="Ramen bowl">
         <img class="tog-img" src="photos/Ramen2_alt.png" alt="Ramen bowl alt">
         <span class="bowl-label">Ramen</span>
+        <div class="tap-cue">
+            <span class="tap-cue-text">TAP HERE</span>
+            <svg class="tap-cue-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+            </svg>
+        </div>
     </div>
     <div class="bowl-img bowl-toggle" id="mazesobaToggle">
         <img class="tog-img tog-active" src="photos/RamenSomething.png" alt="Mazesoba bowl">
         <img class="tog-img" src="photos/RamenSomething_alt.png" alt="Mazesoba bowl alt">
         <span class="bowl-label">Mazesoba</span>
+        <div class="tap-cue">
+            <span class="tap-cue-text">TAP HERE</span>
+            <svg class="tap-cue-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+            </svg>
+        </div>
     </div>
 
     <div class="bowl-copy">
@@ -1819,7 +1811,7 @@
 <section class="merch-section">
     <div class="merch-top">
         <div class="merch-hero-img">
-            <img src="photos/shirts2.png" alt="Garlic High merch">
+            <img src="photos/shirts3.png" alt="Garlic High merch">
         </div>
         <div class="merch-headline">
             <div class="merch-tag">Wear the Brand</div>
@@ -1828,20 +1820,8 @@
         </div>
     </div>
     <div class="merch-bottom">
-        <div class="merch-card reveal">
-            <div class="merch-name">Logo White T-Shirt</div>
-            <div class="merch-price">$30</div>
-        </div>
-        <div class="merch-card reveal d1">
-            <div class="merch-name">Logo Yellow T-Shirt</div>
-            <div class="merch-price">$30</div>
-        </div>
-        <div class="merch-card reveal d2">
-            <div class="merch-name">"Garlic Love" T-Shirt</div>
-            <div class="merch-price">$45</div>
-        </div>
-        <div class="merch-card reveal d3">
-            <div class="merch-name">Logo Black T-Shirt</div>
+        <div class="merch-card reveal" style="pointer-events:none; cursor:default; max-width:280px;">
+            <div class="merch-name">White / Yellow / Black</div>
             <div class="merch-price">$30</div>
         </div>
     </div>
@@ -1849,52 +1829,10 @@
 
 
 <!-- MENU -->
-<section class="menu-section" id="menu-full">
-    <div class="menu-inner">
-        <div class="lbl reveal">What We Serve</div>
-        <h2 class="sec-h2 reveal d1" style="font-size: clamp(2rem, 3vw, 2.75rem);">The full menu.</h2>
-        <div class="menu-grid">
-            <div class="menu-category">
-                <div class="menu-cat-title">Ramen</div>
-                <div class="menu-item reveal">
-                    <div class="menu-item-name">To Go Ramen</div>
-                    <div class="menu-item-desc">150g noodles · 1 slice chashu pork · Jiro-style thick curly noodles in rich pork bone broth</div>
-                    <div class="menu-item-price">$20</div>
-                </div>
-            </div>
-            <div class="menu-category">
-                <div class="menu-cat-title">Mazesoba</div>
-                <div class="menu-item reveal">
-                    <div class="menu-item-name">To Go Mazesoba</div>
-                    <div class="menu-item-desc">200g noodles · 1 slice chashu pork · quail eggs · Jiro-style brothless noodles</div>
-                    <div class="menu-item-price">$20</div>
-                </div>
-            </div>
-            <div class="menu-category">
-                <div class="menu-cat-title">Mini Bowl</div>
-                <div class="menu-item reveal">
-                    <div class="menu-item-name">Savage Chashu Bowl</div>
-                    <div class="menu-item-price">$5</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- OC BANNER -->
 
 <!-- MERCH -->
-
-<!-- FRANCHISING -->
-<section class="franchise-section">
-    <div class="franchise-pill">Now Available</div>
-    <h2 class="franchise-h2">
-        We Do
-        <span class="em-yellow">Franchising.</span>
-    </h2>
-    <p class="franchise-sub">Your city needs this. Own the bowl, run the garlic, build something savage.</p>
-    <a href="mailto:info@garlichigh.com" class="btn-dark" style="background: var(--yellow); color: var(--ink);">Get in Touch</a>
-</section>
 
 <!-- GALLERY -->
 <section class="gallery">
@@ -1917,12 +1855,23 @@
 </section>
 
 
+<!-- FRANCHISING -->
+<section class="franchise-section">
+    <div class="franchise-pill">Now Available</div>
+    <h2 class="franchise-h2">
+        We Do
+        <span class="em-yellow">Franchising.</span>
+    </h2>
+    <p class="franchise-sub">Your city needs this. Own the bowl, run the garlic, build something savage.</p>
+    <a href="mailto:info@garlichigh.com" class="btn-dark" style="background: var(--yellow); color: var(--ink);">Get in Touch</a>
+</section>
+
 <!-- FOOTER -->
 <footer>
     <div class="foot-logo"><img src="photos/LOGO.png" alt="Garlic High"></div>
     <div class="foot-copy">© 2026 Garlic High · Sunnyvale · Yorba Linda · Torrance, CA</div>
     <div class="foot-links">
-        <a href="tel:6698997165">Call Us</a>
+        <a href="tel:6698997165">Contact Us</a>
         <a href="https://www.instagram.com/garlic.high_sunnyvale" target="_blank">Instagram</a>
         <a href="https://www.yelp.com/biz/garlic-high-yorba-linda?osq=garlic+high" target="_blank">Yelp</a>
     </div>
