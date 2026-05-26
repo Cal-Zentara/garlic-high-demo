@@ -1594,6 +1594,15 @@
             .bowl {
                 grid-template-columns: 1fr;
             }
+            .bowl-header {
+                grid-column: 1 / -1;
+                display: flex;
+                padding: 2.5rem 1.5rem 1rem;
+            }
+            .bowl-header img {
+                width: 80vw;
+                max-width: 400px;
+            }
             .bowl-img { height: 50vw; min-height: 280px; }
             .bowl-copy { padding: 3rem 1.5rem; }
 
@@ -1971,22 +1980,29 @@
 
     // Slideshow
     const slides = [
-        { src: 'photos/IMG_3497.jpg', alt: 'Garlic High ramen' },
-        { src: 'photos/IMG_4314 - Copy.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/IMG_4322 - Copy.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/IMG_4322.jpg', alt: 'Garlic High ramen' },
-        { src: 'photos/IMG_4350.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/IMG_4353.jpg', alt: 'Garlic High ramen' },
-        { src: 'photos/IMG_4426.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/IMG_4427 - Copy.jpg', alt: 'Garlic High ramen' },
-        { src: 'photos/IMG_4430 - Copy.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/IMG_4434 - Copy.jpg', alt: 'Garlic High ramen' },
-        { src: 'photos/IMG_4719 - Copy.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/IMG_4721 - Copy.jpg', alt: 'Garlic High ramen' },
-        { src: 'photos/IMG_4760 - Copy.jpg', alt: 'Garlic High bowl' },
-        { src: 'photos/Photoroom_20260413_012847.png', alt: 'Garlic High ramen' },
-        { src: 'photos/Photoroom_20260413_012917.png', alt: 'Garlic High bowl' },
-        { src: 'photos/Photoroom_20260413_012943.png', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4314.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4323.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4324.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4350.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4353.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4425.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4427.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4434.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4603.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4606.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4607.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4621.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4716.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4719.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4761.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4763.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4768.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4774.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_4778.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_4780.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_5480.jpg', alt: 'Garlic High bowl' },
+        { src: 'photos/IMG_5825.jpg', alt: 'Garlic High ramen' },
+        { src: 'photos/IMG_5857.jpg', alt: 'Garlic High bowl' },
     ];
 
     let current = 0;
