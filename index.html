@@ -986,10 +986,16 @@
 
         .merch-headline {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 3rem 3rem 2rem;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 3rem 3rem 3rem;
             background: var(--ink);
+        }
+
+        .merch-headline-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .merch-tag {
@@ -1034,12 +1040,7 @@
             display: block;
         }
 
-        .merch-bottom {
-            padding: 2rem 3rem 3rem;
-            display: flex;
-        }
-
-        .merch-card {
+.merch-card {
             background: rgba(255,254,247,0.05);
             border: 1px solid rgba(255,254,247,0.08);
             border-radius: 0.875rem;
@@ -1070,8 +1071,7 @@
         @media (max-width: 768px) {
 .merch-hero-img { min-height: unset; }
             .merch-hero-img img { width: 100%; height: auto; max-height: unset; }
-            .merch-headline { padding: 2rem 1.5rem 1.5rem; }
-            .merch-bottom { grid-template-columns: 1fr 1fr; padding: 1rem 1.5rem 2rem; }
+            .merch-headline { padding: 2rem 1.5rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
         }
 
         /* ─── FRANCHISING ─── */
@@ -1830,15 +1830,15 @@
             <img src="photos/shirts3.png" alt="Garlic High merch">
         </div>
         <div class="merch-headline">
-            <div class="merch-tag">Wear the Brand</div>
-            <h2 class="merch-h2">Rep the<br><span class="savage">Ramen.</span></h2>
-            <p class="merch-sub">Grab one at the counter. Wear it everywhere. Smell like garlic forever.</p>
-        </div>
-    </div>
-    <div class="merch-bottom">
-        <div class="merch-card reveal" style="pointer-events:none; cursor:default; max-width:280px;">
-            <div class="merch-name">White / Yellow / Black</div>
-            <div class="merch-price">$30</div>
+            <div class="merch-headline-text">
+                <div class="merch-tag">Wear the Brand</div>
+                <h2 class="merch-h2">Rep the<br><span class="savage">Ramen.</span></h2>
+                <p class="merch-sub">Grab one at the counter. Wear it everywhere. Smell like garlic forever.</p>
+            </div>
+            <div class="merch-card reveal" style="pointer-events:none; cursor:default; max-width:280px; flex-shrink:0;">
+                <div class="merch-name">White / Yellow / Black</div>
+                <div class="merch-price">$30</div>
+            </div>
         </div>
     </div>
 </section>
