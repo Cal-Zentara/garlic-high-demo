@@ -967,23 +967,19 @@
         }
 
         .merch-top {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 420px;
+            display: flex;
+            flex-direction: column;
         }
 
         .merch-hero-img {
             overflow: hidden;
-            background: #d6e8f0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            background: #111;
+            width: 100%;
         }
 
         .merch-hero-img img {
-            width: auto;
-            height: 100%;
-            max-height: 420px;
+            width: 100%;
+            height: auto;
             object-fit: contain;
             display: block;
         }
@@ -992,7 +988,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 3rem;
+            padding: 3rem 3rem 2rem;
+            background: var(--ink);
         }
 
         .merch-tag {
@@ -1071,8 +1068,7 @@
         }
 
         @media (max-width: 768px) {
-.merch-top { grid-template-columns: 1fr; }
-            .merch-hero-img { min-height: unset; }
+.merch-hero-img { min-height: unset; }
             .merch-hero-img img { width: 100%; height: auto; max-height: unset; }
             .merch-headline { padding: 2rem 1.5rem 1.5rem; }
             .merch-bottom { grid-template-columns: 1fr 1fr; padding: 1rem 1.5rem 2rem; }
@@ -1911,11 +1907,7 @@
         const scrolled = Math.max(0, -rect.top);
         const progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
 
-        // ease-out cubic — fast at the start, slows toward 70%
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const scale = 1 - eased * 0.3;
-        // scale the whole frame so cue moves with the image
-        posterFrame.style.transform = `scale(${scale})`;
+        posterFrame.style.transform = '';
 
         if (posterCue) posterCue.style.opacity = Math.max(0, 1 - progress * 2);
 
