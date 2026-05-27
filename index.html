@@ -1632,6 +1632,42 @@
             }
             .foot-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
         }
+        /* Order for Pickup dropdown */
+        .order-dropdown { position: relative; display: inline-block; }
+        .order-pickup-toggle { border: none; cursor: pointer; }
+        .order-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            background: var(--ink);
+            border-radius: 0.85rem;
+            padding: 0.4rem;
+            min-width: 170px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 200;
+            transition: max-height 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.2s ease;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+        }
+        .order-dropdown-menu.open { max-height: 180px; opacity: 1; pointer-events: all; }
+        .order-dropdown-menu a {
+            color: var(--cream);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            border-radius: 0.55rem;
+            transition: background 0.15s ease;
+            white-space: nowrap;
+            display: block;
+        }
+        .order-dropdown-menu a:hover { background: rgba(255,255,255,0.12); }
     </style>
 </head>
 <body>
@@ -1658,7 +1694,14 @@
         <img src="photos/HeroRamen.jpg" alt="Jiro-style ramen">
         <div class="nav-tag">Sunnyvale · Yorba Linda · Torrance, CA · Jiro-Style Ramen</div>
     </div>
-    <a href="https://order.mealkeyway.com/customer/release/index?mid=666b6c6c4332397336594769457378694643467565513d3d#/main" target="_blank" class="nav-cta">Order for Pickup</a>
+    <div class="order-dropdown">
+        <button class="nav-cta order-pickup-toggle" id="navOrderToggle">Order for Pickup</button>
+        <div class="order-dropdown-menu" id="navOrderMenu">
+            <a href="https://www.garlic-high.com/home" target="_blank">Sunnyvale, CA</a>
+            <a href="https://order.mealkeyway.com/customer/release/index?mid=4547472f6d57302b46693335714a50736454416553673d3d#/main" target="_blank">Torrance, CA</a>
+            <a href="https://order.mealkeyway.com/customer/release/index?mid=666b6c6c4332397336594769457378694643467565513d3d#/main" target="_blank">Yorba Linda, CA</a>
+        </div>
+    </div>
 </nav>
 
 <!-- HERO -->
@@ -1818,7 +1861,14 @@
             Thick, chewy noodles. A broth that took hours. Slow-braised pork chashu stacked high. And fresh garlic — loaded on top, no compromise. Every bowl is a commitment.
         </p>
         <div class="reveal d3">
-            <a href="https://order.mealkeyway.com/customer/release/index?mid=666b6c6c4332397336594769457378694643467565513d3d#/main" target="_blank" class="btn-dark">Order for Pickup</a>
+            <div class="order-dropdown">
+                <button class="btn-dark order-pickup-toggle" id="aboutOrderToggle">Order for Pickup</button>
+                <div class="order-dropdown-menu" id="aboutOrderMenu">
+                    <a href="https://www.garlic-high.com/home" target="_blank">Sunnyvale, CA</a>
+                    <a href="https://order.mealkeyway.com/customer/release/index?mid=4547472f6d57302b46693335714a50736454416553673d3d#/main" target="_blank">Torrance, CA</a>
+                    <a href="https://order.mealkeyway.com/customer/release/index?mid=666b6c6c4332397336594769457378694643467565513d3d#/main" target="_blank">Yorba Linda, CA</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1960,6 +2010,18 @@
     document.addEventListener('click', () => {
         locMenu.classList.remove('open');
         allPanels.forEach(p => p.classList.remove('open'));
+        document.querySelectorAll('.order-dropdown-menu').forEach(m => m.classList.remove('open'));
+    });
+
+    // Order for Pickup dropdowns
+    document.querySelectorAll('.order-pickup-toggle').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const isOpen = menu.classList.contains('open');
+            document.querySelectorAll('.order-dropdown-menu').forEach(m => m.classList.remove('open'));
+            if (!isOpen) menu.classList.add('open');
+        });
     });
 
     // Marquee — pixel-perfect seamless loop
