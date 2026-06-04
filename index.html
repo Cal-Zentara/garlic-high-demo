@@ -1351,7 +1351,7 @@
 
         /* ─── POSTER INTRO ─── */
         .poster-pin {
-            height: 135vh;
+            height: 100vh;
             position: relative;
             background: var(--cream);
             z-index: 90;
@@ -1395,7 +1395,7 @@
 
         .poster-cue {
             position: absolute;
-            bottom: 10vh;
+            bottom: 6vh;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -1415,15 +1415,23 @@
         }
 
         .poster-cue img {
-            width: 188px;
+            width: 140px;
             height: auto;
             opacity: 1;
         }
 
+        @media (max-width: 768px) {
+            .poster-cue img { width: 110px; }
+        }
+
         .poster-cue svg {
-            stroke: var(--ink);
+            stroke: #FFD400;
+            stroke-width: 3.5;
+            width: 46px;
+            height: 46px;
             display: block;
-            margin-top: -8px;
+            margin-top: -6px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
         }
 
         @keyframes bounceCue {
@@ -1956,7 +1964,7 @@
     function updatePoster() {
         if (!posterPin || !posterFrame) return;
         const rect = posterPin.getBoundingClientRect();
-        const total = posterPin.offsetHeight - window.innerHeight;
+        const total = window.innerHeight;
         const scrolled = Math.max(0, -rect.top);
         const progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
 
